@@ -1,0 +1,16 @@
+19/10/2023
+
+DATABASE VIEWS
+
+REPORT ZAFEEFA_DB_VIEW_EX.
+
+DATA : it_marc TYPE STANDARD TABLE OF ZAFEEFA_DB_VIEW,
+       wa_marc LIKE LINE OF it_marc.
+
+SELECT-OPTIONS s_matnr FOR wa_marc-matnr.
+
+SELECT * FROM ZAFEEFA_DB_VIEW INTO TABLE it_marc WHERE matnr IN s_matnr.
+
+LOOP AT it_marc INTO wa_marc.
+  WRITE : /20 wa_marc-matnr ,30 wa_marc-werks ,40 wa_marc-name1.
+ENDLOOP.
